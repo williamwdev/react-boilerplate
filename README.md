@@ -2,7 +2,42 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Setting up
+## Using to start a new React project
+
+1. Run `git clone git@github.com:williamwdev/react-boilerplate.git new-project-name`
+2. Run `npm install` to install dependencies
+3. Run `npm start`
+4. Create a mew rep on Github
+5. Run `git remote set-url` to check current origin & Run `git remote set-url origin git@github.com:williamwdev/project-name`
+6. Run `git add .` & `git commit -m 'initial commit'` & `git push` 
+
+## Building for production and deploying on Vercel
+
+1. Run `npm run build` to create optimized files to deploy
+2. Set up and install [Vercel](https://vercel.com/) and run `vercel --version`
+3. Run `vercel login` and run `vercel` to deploy with the CLI
+4. Run `touch ./vercel.json` to create file for custom configurations in the root directory of project
+```javascript
+{
+  "version": 2,
+  "routes": [
+      { "handle": "filesystem" },
+      { "src": "/.*", "dest": "/index.html" }
+  ]
+}
+```
+5. Add custom scripts for deploying in package.json file
+```javascript
+"scripts": {
+...
+"predeploy": "npm run build",
+"deploy": "vercel --prod"
+}
+```
+6. Run `npm run deploy` to deploy new build
+7. Run `vercel alias [previous-deploy-url] [alias]`
+
+## Fresh Set up
 
 1. Make sure to have the most current version of [Node](https://nodejs.org/en/)
 2. Run `node --version` and `npm --version`
